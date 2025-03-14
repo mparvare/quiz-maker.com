@@ -1,0 +1,20 @@
+{
+    "name": "mparvare/quiz-maker",
+    "description": "Online quiz platform",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "firebase/php-jwt": "^6.0",
+        "vlucas/phpdotenv": "^5.3",
+        "rakit/validation": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
