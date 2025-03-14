@@ -9,7 +9,37 @@ class Request {
 
     public function __construct() {
         $this->method = $_SERVER['REQUEST_METHOD'];
-        $this->uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        
+        // استخراج URI با حذف پیشوندهای اضافی
+        $requestUri = $_SERVER['REQUEST_URI'];
+        
+        // تنظیمات برای حذف پیشوند
+        $basePaths = [
+            '/quiz-maker.com/public/',
+            '/quiz-maker.com/public',
+            '/public/',
+            '/public',
+            ''
+        ];
+
+        // حذف پیشوندهای اضافی
+        $processedUri = $requestUri;
+        foreach ($basePaths as $basePath) {
+            if ($basePath === '' || strpos($requestUri, $basePath) === 0) {
+                $processedUri = substr($requestUri, strlen($basePath));
+                break;
+            }
+        }
+
+        // تمیز کردن URI
+        $uri = parse_url($processedUri, PHP_URL_PATH);
+        $this->uri = '/' . trim($uri, '/') ?: '/';
+
+        // لاگ برای دیباگ
+        error_log("Original Request URI: " . $requestUri);
+        error_log("Processed URI: " . $this->uri);
+        error_log("Base URI: " . $processedUri);
+
         $this->queryParams = $_GET;
         $this->body = json_decode(file_get_contents('php://input'), true) ?? [];
     }
@@ -35,9 +65,4 @@ class Request {
         }
         return $this->body[$key] ?? $default;
     }
-
-    public function hasKey($key) {
-        return isset($this->body[$key]);
-    }
 }
-?>

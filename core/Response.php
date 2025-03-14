@@ -2,31 +2,22 @@
 namespace Core;
 
 class Response {
-    public function json($data, $status = 200) {
-        header('Content-Type: application/json; charset=utf-8');
-        http_response_code($status);
-        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    public function json($data, $statusCode = 200) {
+        header('Content-Type: application/json');
+        http_response_code($statusCode);
+        echo json_encode($data);
         exit;
     }
 
-    public function error($message, $status = 400) {
-        $this->json([
+    public function error($message, $statusCode = 404) {
+        header('Content-Type: application/json');
+        http_response_code($statusCode);
+        echo json_encode([
             'status' => 'error',
-            'message' => $message
-        ], $status);
-    }
-
-    public function success($message, $data = null, $status = 200) {
-        $response = [
-            'status' => 'success',
-            'message' => $message
-        ];
-        
-        if ($data !== null) {
-            $response['data'] = $data;
-        }
-        
-        $this->json($response, $status);
+            'message' => $message,
+            'uri' => $_SERVER['REQUEST_URI'],
+            'method' => $_SERVER['REQUEST_METHOD']
+        ]);
+        exit;
     }
 }
-?>

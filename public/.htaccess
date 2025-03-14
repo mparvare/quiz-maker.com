@@ -1,4 +1,14 @@
 RewriteEngine On
+
+# حذف پیشوند کامل
+RewriteCond %{REQUEST_URI} ^/quiz-maker.com/public/(.*)$
+RewriteRule ^quiz-maker.com/public/(.*)$ /\$1 [L,QSA]
+
+# حذف پیشوند public
+RewriteCond %{REQUEST_URI} ^/public/(.*)$
+RewriteRule ^public/(.*)$ /\$1 [L,QSA]
+
+# هدایت همه درخواست‌ها به index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [L,QSA]
