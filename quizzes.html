@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمون‌ها | Quiz Maker</title>
+    
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- فونت ایران سنس -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable.css" rel="stylesheet">
+    
+    <!-- استایل سفارشی -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-light">
+    <!-- هدر -->
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <div class="container-fluid">
+                <!-- لوگو -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.png" alt="Quiz Maker" width="120">
+                </a>
+
+                <!-- منوی موبایل -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- منوی اصلی -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">صفحه اصلی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="quizzes.html">آزمون‌ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">تماس با ما</a>
+                        </li>
+                    </ul>
+
+                    <!-- منوی کاربری -->
+                    <div class="d-flex">
+                        <!-- لینک‌های ورود/ثبت‌نام -->
+                        <div class="auth-links">
+                            <a href="login.html" class="btn btn-outline-primary me-2 auth-link">ورود</a>
+                            <a href="register.html" class="btn btn-primary auth-link">ثبت نام</a>
+                        </div>
+
+                        <!-- منوی کاربری لاگین شده -->
+                        <div class="user-links" style="display: none;">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                                    <span class="user-name">نام کاربر</span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="dashboard.html">داشبورد</a></li>
+                                    <li><a class="dropdown-item" href="profile.html">پروفایل</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger logout-link" href="#">خروج</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- محتوای اصلی -->
+    <main class="container my-5">
+        <h1 class="mb-4">آزمون‌های موجود</h1>
+        
+        <!-- فیلترها و جستجو -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <form id="search-form" class="d-flex">
+                    <input type="text" class="form-control" id="search-input" placeholder="جستجوی آزمون...">
+                    <button type="submit" class="btn btn-primary ms-2">جستجو</button>
+                </form>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <select class="form-select w-auto" id="category-filter">
+                    <option value="">همه دسته‌ها</option>
+                    <option value="math">ریاضی</option>
+                    <option value="science">علوم</option>
+                    <option value="history">تاریخ</option>
+                    <option value="language">زبان</option>
+                    <option value="programming">برنامه‌نویسی</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- لیست آزمون‌ها -->
+        <div class="row" id="quiz-list">
+            <!-- این بخش توسط جاوااسکریپت با آزمون‌ها پر می‌شود -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">آزمون ریاضی</h5>
+                        <p class="card-text">سنجش مفاهیم پایه ریاضی</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">30 سوال | 45 دقیقه</small>
+                            <span class="badge bg-primary">ریاضی</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <a href="quiz-detail.html?id=1" class="btn btn-outline-primary w-100">مشاهده آزمون</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">آزمون زبان انگلیسی</h5>
+                        <p class="card-text">آزمون سطح زبان انگلیسی</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">40 سوال | 60 دقیقه</small>
+                            <span class="badge bg-info">زبان</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <a href="quiz-detail.html?id=2" class="btn btn-outline-primary w-100">مشاهده آزمون</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه‌بندی -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center mt-4">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">بعدی</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <!-- فوتر -->
+    <footer class="bg-white py-4 mt-5 border-top">
+        <div class="container text-center">
+            <p>&copy; 2024 Quiz Maker. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- اسکریپت‌های اختصاصی -->
+    <script type="module" src="assets/js/utils/api-service.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/quizzes.js"></script>
+</body>
+</html>

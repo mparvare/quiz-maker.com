@@ -1,33 +1,48 @@
 <?php
 namespace App\Middleware;
 
-use Core\Request;
-use Core\Response;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use App\Services\TokenService;
 
 class AuthMiddleware {
-    public static function handle(Request $request, Response $response, $requiredRoles = []) {
-        $headers = getallheaders();
-        $authHeader = $headers['Authorization'] ?? null;
-
-        if (!$authHeader) {
-            $response->error('توکن احراز هویت یافت نشد', 401);
-        }
+    public function handle($request) {
+        $token = $this->extractToken($request);
 
         try {
-            $token = str_replace('Bearer ', '', $authHeader);
-            $decoded = JWT::decode($token, new Key(env('JWT_SECRET'), 'HS256'));
+            $decoded = JWT::decode(
+                $token, 
+                new Key(getenv('JWT_SECRET'), 'HS256')
+            );
 
-            // بررسی نقش کاربر
-            if (!empty($requiredRoles) && !in_array($decoded->role, $requiredRoles)) {
-                $response->error('دسترسی غیرمجاز', 403);
+            // اعتبارسنجی توکن
+            if ($this->isTokenExpired($decoded)) {
+                throw new \Exception('توکن منقضی شده است');
             }
 
-            return $decoded;
+            // افزودن اطلاعات کاربر به درخواست
+            $request->user = $decoded;
+            return true;
         } catch (\Exception $e) {
-            $response->error('توکن نامعتبر است', 401);
+            // رد درخواست
+            http_response_code(401);
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'احراز هویت ناموفق'
+            ]);
+            exit;
         }
     }
+
+    private function extractToken($request) {
+        $headers = getallheaders();
+        $authHeader = $headers['Authorization'] ?? '';
+        
+        preg_match('/Bearer\s(\S+)/', $authHeader, $matches);
+        return $matches[1] ?? null;
+    }
+
+    private function isTokenExpired($decoded) {
+        return $decoded->exp < time();
+    }
 }
-?>

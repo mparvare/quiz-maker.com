@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما | Quiz Maker</title>
+    
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- فونت ایران سنس -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable.css" rel="stylesheet">
+    
+    <!-- استایل سفارشی -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-light">
+    <!-- هدر -->
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <div class="container-fluid">
+                <!-- لوگو -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.png" alt="Quiz Maker" width="120">
+                </a>
+
+                <!-- منوی موبایل -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- منوی اصلی -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">صفحه اصلی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="quizzes.html">آزمون‌ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contact.html">تماس با ما</a>
+                        </li>
+                    </ul>
+
+                    <!-- منوی کاربری -->
+                    <div class="d-flex">
+                        <div class="auth-links">
+                            <a href="login.html" class="btn btn-outline-primary me-2 auth-link">ورود</a>
+                            <a href="register.html" class="btn btn-primary auth-link">ثبت نام</a>
+                        </div>
+
+                        <div class="user-links" style="display: none;">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                                    <span class="user-name">نام کاربر</span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="dashboard.html">داشبورد</a></li>
+                                    <li><a class="dropdown-item" href="profile.html">پروفایل</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger logout-link" href="#">خروج</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- محتوای اصلی -->
+    <main class="container my-5">
+        <h1 class="text-center mb-5">تماس با ما</h1>
+        
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3>فرم تماس</h3>
+                        <p>
+                            پیشنهادات، انتقادات و سوالات خود را با ما در میان بگذارید.
+                            کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.
+                        </p>
+                        
+                        <form id="contact-form">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">نام و نام خانوادگی</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">ایمیل</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">موضوع</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">پیام</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100">ارسال پیام</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3>اطلاعات تماس</h3>
+                        <p>
+                            از طریق راه‌های زیر می‌توانید با ما در ارتباط باشید:
+                        </p>
+                        
+                        <ul class="list-unstyled mt-4">
+                            <li class="d-flex align-items-center mb-4">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">ایمیل</h5>
+                                    <a href="mailto:info@quizmaker.com" class="text-decoration-none">info@quizmaker.com</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center mb-4">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3">
+                                    <i class="bi bi-telephone"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">شماره تماس</h5>
+                                    <a href="tel:+982100000000" class="text-decoration-none">021-00000000</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center mb-4">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">آدرس</h5>
+                                    <p class="mb-0">تهران، خیابان ولیعصر، برج آزادی، واحد 504</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">ساعات کاری</h5>
+                                    <p class="mb-0">شنبه تا چهارشنبه: 9 الی 18<br>پنج‌شنبه: 9 الی 14</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3>موقعیت ما</h3>
+                        <p>شما می‌توانید ما را در نقشه زیر پیدا کنید:</p>
+                        <div class="map-container mt-3">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207371.35556524886!2d51.208191551800505!3d35.69701018356825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e00491ff3dcd9%3A0xf0b3697c567024bc!2sTehran%2C%20Tehran%20Province%2C%20Iran!5e0!3m2!1sen!2s!4v1711289350896!5m2!1sen!2s" 
+                                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm mt-4">
+                    <div class="card-body">
+                        <h3>سوالات متداول</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        آیا استفاده از Quiz Maker رایگان است؟
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        بله! نسخه پایه Quiz Maker کاملاً رایگان است. برای امکانات بیشتر می‌توانید به اشتراک ویژه ارتقا دهید.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        چطور می‌توانم یک آزمون بسازم؟
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        برای ساخت آزمون، ابتدا وارد حساب کاربری خود شوید و سپس از داشبورد گزینه "ساخت آزمون جدید" را انتخاب کنید.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- فوتر -->
+    <footer class="bg-white py-4 mt-5 border-top">
+        <div class="container text-center">
+            <p>&copy; 2024 Quiz Maker. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- اسکریپت‌های اختصاصی -->
+    <script type="module" src="assets/js/utils/api-service.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/contact.js"></script>
+</body>
+</html>

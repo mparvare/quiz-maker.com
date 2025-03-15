@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزئیات آزمون | Quiz Maker</title>
+    
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- فونت ایران سنس -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-Variable.css" rel="stylesheet">
+    
+    <!-- استایل سفارشی -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-light">
+    <!-- هدر -->
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <div class="container-fluid">
+                <!-- لوگو -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.png" alt="Quiz Maker" width="120">
+                </a>
+
+                <!-- منوی موبایل -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- منوی اصلی -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">صفحه اصلی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="quizzes.html">آزمون‌ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">تماس با ما</a>
+                        </li>
+                    </ul>
+
+                    <!-- منوی کاربری -->
+                    <div class="d-flex">
+                        <div class="auth-links">
+                            <a href="login.html" class="btn btn-outline-primary me-2 auth-link">ورود</a>
+                            <a href="register.html" class="btn btn-primary auth-link">ثبت نام</a>
+                        </div>
+
+                        <div class="user-links" style="display: none;">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                                    <span class="user-name">نام کاربر</span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="dashboard.html">داشبورد</a></li>
+                                    <li><a class="dropdown-item" href="profile.html">پروفایل</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger logout-link" href="#">خروج</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- محتوای اصلی -->
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- جزئیات آزمون -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h1 class="card-title mb-3" id="quiz-title">آزمون ریاضی پایه نهم</h1>
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <span class="badge bg-primary d-flex align-items-center p-2">
+                                <i class="bi bi-table me-1"></i>
+                                <span id="quiz-questions">20 سوال</span>
+                            </span>
+                            <span class="badge bg-secondary d-flex align-items-center p-2">
+                                <i class="bi bi-clock me-1"></i>
+                                <span id="quiz-time">45 دقیقه</span>
+                            </span>
+                            <span class="badge bg-success d-flex align-items-center p-2">
+                                <i class="bi bi-people me-1"></i>
+                                <span id="quiz-participants">85 شرکت‌کننده</span>
+                            </span>
+                        </div>
+                        
+                        <h5>توضیحات</h5>
+                        <p id="quiz-description">این آزمون برای سنجش میزان یادگیری دانش‌آموزان پایه نهم از مفاهیم پایه ریاضی طراحی شده است. تمرکز این آزمون بر روی مباحث مثلثات، معادلات درجه دوم و هندسه می‌باشد. قبل از شروع آزمون توصیه می‌شود جزوات مربوط به این مباحث را مرور نمایید.</p>
+                        
+                        <hr class="my-4">
+                        
+                        <h5>نکات مهم</h5>
+                        <ul>
+                            <li>برای هر پاسخ درست 3 امتیاز مثبت و برای هر پاسخ نادرست 1 امتیاز منفی در نظر گرفته می‌شود.</li>
+                            <li>مدت زمان پاسخگویی به سوالات 45 دقیقه است و بعد از اتمام این زمان، آزمون به صورت خودکار ثبت می‌شود.</li>
+                            <li>امکان بازگشت به سوالات قبلی وجود دارد.</li>
+                            <li>در پایان آزمون، نتیجه به صورت آنی نمایش داده می‌شود.</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <button class="btn btn-primary btn-lg w-100" id="start-quiz-btn">شروع آزمون</button>
+                    </div>
+                </div>
+                
+                <!-- نظرات و بازخوردها -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">نظرات کاربران <span class="badge bg-secondary">12</span></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <form id="comment-form">
+                                <div class="mb-3">
+                                    <label for="comment-text" class="form-label">نظر خود را بنویسید</label>
+                                    <textarea class="form-control" id="comment-text" rows="3" placeholder="نظر شما..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">ارسال نظر</button>
+                            </form>
+                        </div>
+                        
+                        <hr>
+                        
+                        <!-- لیست نظرات -->
+                        <div class="comments-list">
+                            <div class="d-flex mb-4">
+                                <div class="flex-shrink-0">
+                                    <div class="avatar bg-primary text-white">ر</div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6>رضا محمدی</h6>
+                                    <p class="text-muted small mb-2">1402/12/10</p>
+                                    <p>آزمون خوبی بود. سوالات استاندارد و متناسب با سطح دانش‌آموزان پایه نهم طراحی شده بود.</p>
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-sm btn-outline-primary me-2">پاسخ</button>
+                                        <div class="text-warning">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex mb-4">
+                                <div class="flex-shrink-0">
+                                    <div class="avatar bg-success text-white">س</div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6>سارا احمدی</h6>
+                                    <p class="text-muted small mb-2">1402/12/08</p>
+                                    <p>سوالات کمی سخت بود. زمان 45 دقیقه برای پاسخگویی کافی نبود.</p>
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-sm btn-outline-primary me-2">پاسخ</button>
+                                        <div class="text-warning">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <!-- اطلاعات تکمیلی -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">اطلاعات آزمون</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>دسته‌بندی</span>
+                            <span class="badge bg-primary">ریاضی</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>پایه تحصیلی</span>
+                            <span>نهم</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>حداقل نمره قبولی</span>
+                            <span>12 از 20</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>تاریخ انتشار</span>
+                            <span>1402/12/10</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>وضعیت</span>
+                            <span class="badge bg-success">فعال</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- آزمون‌های مرتبط -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">آزمون‌های مرتبط</h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="quiz-detail.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            آزمون ریاضی پایه دهم
+                            <span class="badge bg-primary">ریاضی</span>
+                        </a>
+                        <a href="quiz-detail.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            آزمون جبر مقدماتی
+                            <span class="badge bg-secondary">پایه نهم</span>
+                        </a>
+                        <a href="quiz-detail.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            آزمون هندسه
+                            <span class="badge bg-info">تکمیلی</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- فوتر -->
+    <footer class="bg-white py-4 mt-5 border-top">
+        <div class="container text-center">
+            <p>&copy; 2024 Quiz Maker. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- اسکریپت‌های اختصاصی -->
+    <script type="module" src="assets/js/utils/api-service.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/quiz-detail.js"></script>
+</body>
+</html>
